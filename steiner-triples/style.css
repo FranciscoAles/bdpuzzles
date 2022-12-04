@@ -1,0 +1,294 @@
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+}
+
+:root {
+    --red: #9D2235;
+    --cornerstone: #75787B;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    margin: 0px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#title-bar {
+    background-color: var(--cornerstone);
+    color: var(--red);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title-bar > .material-symbols-outlined {
+    font-size: 70%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 1%;
+    transition: background-color 0.2s;
+    color: var(--red);
+    text-decoration: none;
+}
+
+#title-bar > .material-symbols-outlined:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#title {
+    text-align: center;
+    margin: 0px;
+    text-shadow:
+        -1px -1px 0 white,  
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+    font-weight: 900;
+    font-size: inherit;
+}
+
+#grid-container {
+    display: inline-grid;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.grid-item > input {
+    display: none;
+}
+
+.grid-item > label {
+    color: white;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+    transition: color 0.5s, box-shadow 0.5s, opacity 0.5s;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.grid-item > label:hover {
+    opacity: 0.8;
+}
+
+.brace {
+    font-size: 1.5em;
+    margin: 1px;
+}
+
+.grid-item > input:checked ~ label {
+    background: linear-gradient(45deg, gold, white);
+    color: black !important;
+    box-shadow: 0px 0px 10px gold;
+}
+
+.grid-item > input:checked ~ label:hover {
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+@keyframes disable {
+    0% {
+        background: linear-gradient(45deg, gold, white);
+        color: black;
+        box-shadow: 0px 0px 10px gold;
+    }
+
+    100% {
+        background-color: var(--cornerstone);
+        color: black;
+        opacity: 0.8;
+    }
+}
+
+@keyframes enable {
+    0% {
+        background-color: var(--cornerstone);
+        color: black;
+        opacity: 0.8;
+    }
+
+    100% {
+        background-color: var(--red);
+        color: white;
+        opacity: 1;
+    }
+}
+
+#undo-button {
+    background-color: white;
+    border-radius: 10%;
+    font-size: 150%;
+    border: 3px solid var(--red);
+    cursor: pointer;
+    transition: background-color 0.5s;
+    position: absolute;
+    padding: 2%;
+}
+
+#undo-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+
+#menu {
+    position: fixed;
+    background-color: var(--cornerstone);
+    width: 250px;
+    height: 100%;
+    box-shadow: 0px 0px 10px black;
+    display: none;
+    top: 0px;
+    left: 0px;
+    color: white;
+}
+
+#menu > .material-symbols-outlined {
+    float: right;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+}
+
+#menu > .material-symbols-outlined:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#menu-option-wraper {
+    padding: 20px;
+}
+
+.menu-option {
+    cursor: pointer;
+}
+
+.menu-option:hover {
+    text-decoration: underline;
+}
+
+.popup {
+    position: fixed;
+    display: none;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    overflow-y: auto;
+    background-color: white;
+    border: 5px solid var(--red);
+    border-radius: 10px;
+}
+
+.popup > * {
+    margin: 20px;
+}
+
+.close-button {
+    position: absolute;
+    padding: 0.5%;
+    top: 0px;
+    right: 0px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+}
+
+#win-popup > h2 {
+    text-align: center;
+}
+
+.restart-button {
+    background-color: var(--red);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 80%;
+    transition: opacity 0.2s;
+}
+
+.restart-button:hover {
+    opacity: 0.8;
+}
+
+#help-popup > h1 {
+    text-align: center;
+}
+
+#settings-popup > h1 {
+    text-align: center;
+}
+
+#settings-popup > label {
+    margin-right: 0px;
+}
+
+#select-grid-size {
+    padding: 0.3em;
+    border-radius: 10%;
+    border: 1px solid var(--red);
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
+}
