@@ -247,6 +247,7 @@ let menuButton = document.getElementById("menu-button");
 menuButton.addEventListener("click", openMenu);
 function openMenu() {
     menu.style.display = "block";
+    overlay.style.display = "block";
 }
 
 // close menu
@@ -254,6 +255,7 @@ let closeMenuButton = document.getElementById("close-menu-button");
 closeMenuButton.addEventListener("click", closeMenu);
 function closeMenu() {
     menu.style.display = "none";
+    overlay.style.display = "none";
 }
 
 // Popup
@@ -266,9 +268,9 @@ class Popup {
         }
 
         this.openPopup = function () {
+            closeMenu();
             overlay.style.display = "block";
             popup.style.display = "block";
-            closeMenu();
         };
 
         this.closeButton = document.createElement("span");

@@ -1,14 +1,18 @@
+/* Block Desigin Puzzles theme colors */
+:root {
+    --blue: #1286B8;
+    --turquoise: #356D85;
+    --green: #00EBB0;
+    --red: #B8122E;
+    --orange: #ED4D3B;
+}
+
 .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 48;
-}
-
-:root {
-    --red: #9D2235;
-    --cornerstone: #75787B;
 }
 
 /* width */
@@ -42,8 +46,7 @@ body {
 }
 
 #title-bar {
-    background-color: var(--cornerstone);
-    color: var(--red);
+    background-color: var(--orange);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,7 +63,6 @@ body {
     border-radius: 100%;
     padding: 1%;
     transition: background-color 0.2s;
-    color: var(--red);
     text-decoration: none;
 }
 
@@ -94,13 +96,12 @@ body {
 }
 
 .grid-item > label {
-    color: white;
     display: inline-block;
     text-align: center;
     width: 100%;
     height: 100%;
     border-radius: 10%;
-    background-color: var(--red);
+    background-color: var(--blue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,9 +123,9 @@ body {
 }
 
 .grid-item > input:checked ~ label {
-    background: linear-gradient(45deg, gold, white);
+    background: linear-gradient(45deg, var(--green), white);
     color: black !important;
-    box-shadow: 0px 0px 10px gold;
+    box-shadow: 0px 0px 10px var(--green);
 }
 
 .grid-item > input:checked ~ label:hover {
@@ -134,13 +135,13 @@ body {
 
 @keyframes disable {
     0% {
-        background: linear-gradient(45deg, gold, white);
+        background: linear-gradient(45deg, var(--green), white);
         color: black;
-        box-shadow: 0px 0px 10px gold;
+        box-shadow: 0px 0px 10px var(--green);
     }
 
     100% {
-        background-color: var(--cornerstone);
+        background-color: var(--turquoise);
         color: black;
         opacity: 0.8;
     }
@@ -148,14 +149,13 @@ body {
 
 @keyframes enable {
     0% {
-        background-color: var(--cornerstone);
+        background-color: var(--turquoise);
         color: black;
         opacity: 0.8;
     }
 
     100% {
-        background-color: var(--red);
-        color: white;
+        background-color: var(--blue);
         opacity: 1;
     }
 }
@@ -164,7 +164,7 @@ body {
     background-color: white;
     border-radius: 10%;
     font-size: 150%;
-    border: 3px solid var(--red);
+    border: 3px solid var(--blue);
     cursor: pointer;
     transition: background-color 0.5s;
     position: absolute;
@@ -187,7 +187,7 @@ body {
 
 #menu {
     position: fixed;
-    background-color: var(--cornerstone);
+    background-color: var(--turquoise);
     width: 250px;
     height: 100%;
     box-shadow: 0px 0px 10px black;
@@ -230,7 +230,7 @@ body {
     height: 90%;
     overflow-y: auto;
     background-color: white;
-    border: 5px solid var(--red);
+    border: 5px solid var(--blue);
     border-radius: 10px;
 }
 
@@ -257,8 +257,7 @@ body {
 }
 
 .restart-button {
-    background-color: var(--red);
-    color: white;
+    background-color: var(--blue);
     border-radius: 10px;
     border: none;
     padding: 10px;
@@ -287,7 +286,7 @@ body {
 #select-grid-size {
     padding: 0.3em;
     border-radius: 10%;
-    border: 1px solid var(--red);
+    border: 1px solid var(--blue);
     font-size: 1em;
     margin: 5px;
     cursor: pointer;
