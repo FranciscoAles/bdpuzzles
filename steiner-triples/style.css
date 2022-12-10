@@ -106,7 +106,7 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: 100;
-    transition: color 0.5s, box-shadow 0.5s, opacity 0.5s;
+    transition: color 0.5s, box-shadow 0.5s;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -114,7 +114,7 @@ body {
 }
 
 .grid-item > label:hover {
-    opacity: 0.8;
+    opacity: 0.8 !important;
 }
 
 .brace {
