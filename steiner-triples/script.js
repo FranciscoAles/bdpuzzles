@@ -1,5 +1,4 @@
 // game variables
-let gridItemArray = [];
 let columnCount = 6;
 let checkCount = 0;
 let checkedArray = [];
@@ -43,15 +42,15 @@ class gridItem {
 }
 
 // we need to create the items every time the game restarts
-function createItems(numberOfColumns) {
-    for (let i = 0; i < gridItemArray.length; i++) {
-        gridItemArray[i].item.remove();
+function renewItems(numberOfColumns, previousItems) {
+    for (let i = 0; i < previousItems.length; i++) {
+        previousItems[i].item.remove();
     }
     
-    gridItemArray = [];
+    previousItems = [];
     
     grid.style.gridTemplateColumns = "auto" + " auto".repeat(numberOfColumns - 1);
-    
+
     for (let x = 1; x <= numberOfColumns; x++) {
         for (let y = x + 1; y <= numberOfColumns + 1; y++) {
             
@@ -72,12 +71,14 @@ function createItems(numberOfColumns) {
             
             element.style.gridColumn = (y - 1) + " / " + y;
             
-            gridItemArray.push(new gridItem(element, x, y, checkbox, label));
+            previousItems.push(new gridItem(element, x, y, checkbox, label));
         }
     }
+
+    return previousItems;
 }
 
-createItems(columnCount);
+let gridItemArray = renewItems(6, []);
 
 // we need to size everything perfectly, and this function will let us do that
 function size() {
@@ -308,7 +309,7 @@ restartButton.addEventListener("click", restart);
 function restart() {
     winPopup.closePopup();
     settingsPopup.closePopup();
-    createItems(columnCount);
+    gridItemArray = renewItems(columnCount, gridItemArray);
     size();
     completedCount = 0;
     checkCount = 0;
