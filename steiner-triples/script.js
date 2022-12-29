@@ -87,6 +87,7 @@ function size() {
     } else {
         bar.style.fontSize = 0.07 * window.innerHeight + "px";
     }
+    
     let yMargins = bar.offsetHeight / 2;
     grid.style.marginTop = yMargins + "px";
     grid.style.marginBottom = yMargins + "px";
