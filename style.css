@@ -1,8 +1,23 @@
+/* Block Desigin Puzzles theme colors */
+:root {
+  --blue: #1286B8;
+  --turquoise: #356D85;
+  --green: #00EBB0;
+  --red: #B8122E;
+  --orange: #ED4D3B;
+}
+
 body {
-  background-color: cyan;
+  background-color: var(--green);
 }
 
 h1, h4 {
   text-align: center;
   font-family: sans-serif;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
