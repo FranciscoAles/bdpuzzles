@@ -4,6 +4,7 @@ let checkCount = 0;
 let checkedArray = [];
 let completedCount = 0;
 let completedArray = [];
+let autocomplete = false;
 
 // main elements of website
 let grid = document.getElementById("grid-container");
@@ -134,6 +135,11 @@ function undo() {
     }
 }
 
+// autocomplete
+document.getElementById("autocomplete-checkbox").oninput = function() {
+    autocomplete = document.getElementById("autocomplete-checkbox").checked;
+};
+
 // this function is called when any input is checked
 function itemChecked(event) {
     if (event.target.checked) {
@@ -152,6 +158,28 @@ function itemChecked(event) {
     for (let i of gridItemArray) {
         if (i.checkbox.checked) {
             checkedArray.push(i);
+        }
+    }
+
+    if (autocomplete && checkCount == 2) {
+        let first = [checkedArray[0].x, checkedArray[0].y];
+        let second = [checkedArray[1].x, checkedArray[1].y];
+
+        if (first[0] == second[0] || first[0] == second[1] || first[1] == second[0] || first[1] == second[1]) {
+            third = getLastSet(first, second);
+
+            for (let i of gridItemArray) {
+                if (i.x == third[0] && i.y == third[1]) {
+                    if (i.checkbox.disabled == false) {
+                        checkCount++;
+                        i.checkbox.checked = true;
+                        i.enable();
+                        checkedArray.push(i);
+                    }
+
+                    break;
+                }
+            }
         }
     }
     

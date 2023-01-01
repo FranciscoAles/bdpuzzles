@@ -291,3 +291,11 @@ body {
     margin: 5px;
     cursor: pointer;
 }
+
+#autocomplete-checkbox {
+    margin-right: 0px;
+}
+
+#autocomplete-checkbox + label {
+    margin-left: 10px;
+}
